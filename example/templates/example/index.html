@@ -1,0 +1,16 @@
+{% extends 'example/base.html' %}
+
+{% block content %}
+    <h1>Positions for Edit</h1>
+
+    <a href="{% url 'add' %}">Create a new one position</a>
+
+    <ul>
+        {% for p in positions %}
+            <li><a href="{% url 'edit' p.pk %}">Edit: {{ p }}</a></li>
+        {% empty %}
+            <li><a href="{% url 'add' %}">Empty, click to create</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
